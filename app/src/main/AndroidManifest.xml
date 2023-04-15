@@ -12,9 +12,13 @@
         android:theme="@style/Theme.Discover"
         tools:targetApi="31">
         <activity
-            android:name=".SplashscreenActivity"
-            android:exported="true"
-            android:theme="@style/Theme.Splash">
+            android:name=".SignInActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".SignupActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,9 +26,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".SplashscreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Splash">
+
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
