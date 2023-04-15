@@ -19,5 +19,4 @@
         android:contentDescription="@string/logo" />
 
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
