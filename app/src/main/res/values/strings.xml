@@ -7,4 +7,5 @@
     <string name="hello_home_fragment">hello_home_fragment</string>
     <string name="hello_profile_fragment">hello_profile_fragment</string>
     <string name="hello_addProduct_fragment">hello_addProduct_fragment</string>
+    <string name="hello_mycart_fragment">hello_mycart_fragment</string>
 </resources>

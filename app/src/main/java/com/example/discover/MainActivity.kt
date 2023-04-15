@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.home_id->currentFragment(Home())
                 R.id.add_id -> currentFragment(Addproduct())
                 R.id.profile_id->currentFragment(Profile())
+                R.id.mycart-> currentFragment(Mycart())
                 else->{
 
                 }
