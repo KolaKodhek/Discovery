@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +22,15 @@ class Home : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var productAdapter: ProductAdapter
+    private lateinit var productArraylist:ArrayList<Product>
+
+    lateinit var productImage:Array<Int>
+    private lateinit var productCurrency:Array<String>
+    lateinit var productPrice:Array<Int>
+    lateinit var productDesc:Array<String>
+    lateinit var cartImage:Array<Int>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,5 +66,97 @@ class Home : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        dataInitialize()
+        val layoutManager= GridLayoutManager(requireContext(),2,GridLayoutManager.VERTICAL,false)
+            //LinearLayoutManager(context)
+        recyclerView =view.findViewById(R.id.rv_home)
+        recyclerView.layoutManager=layoutManager
+        recyclerView.setHasFixedSize(true)
+        productAdapter= ProductAdapter(productArraylist)
+        recyclerView.adapter=productAdapter
+
+    }
+    private fun dataInitialize(){
+        productArraylist= arrayListOf<Product>()
+
+        productImage= arrayOf(
+            R.drawable.laptop,
+            R.drawable.laptop,
+            R.drawable.laptop,
+            R.drawable.laptop,
+            R.drawable.laptop,
+            R.drawable.laptop,
+            R.drawable.laptop,
+            R.drawable.laptop,
+            R.drawable.laptop,
+            R.drawable.laptop,
+            R.drawable.laptop,
+            R.drawable.laptop,
+        )
+
+        productCurrency= arrayOf(
+            "USD",
+            "USD",
+            "USD",
+            "USD",
+            "USD",
+            "USD",
+            "USD",
+            "USD",
+            "USD",
+            "USD",
+            "USD",
+            "USD",
+        )
+        productDesc= arrayOf(
+            "Brand New Dell",
+            "Lenovo Think pad",
+            "HP pro-book",
+            "Dell Spiro",
+            "HP Elite book",
+            "Lenovo Brand-new",
+            "HP refurbished",
+            "Think pad Lenovo",
+            "Macbook Pro2019",
+            "HP pro-book",
+            "Dell Spiro",
+            "Mac pro-book2020",
+        )
+        productPrice= arrayOf(
+            12345,
+            23456,
+            34567,
+            45678,
+            56789,
+            12345,
+            23456,
+            34567,
+            45678,
+            56789,
+            12345,
+            56789
+        )
+        cartImage= arrayOf(
+            R.drawable.add_to_cart,
+            R.drawable.add_to_cart,
+            R.drawable.add_to_cart,
+            R.drawable.add_to_cart,
+            R.drawable.add_to_cart,
+            R.drawable.add_to_cart,
+            R.drawable.add_to_cart,
+            R.drawable.add_to_cart,
+            R.drawable.add_to_cart,
+            R.drawable.add_to_cart,
+            R.drawable.add_to_cart,
+            R.drawable.add_to_cart,
+        )
+        for (i in productImage.indices){
+            val products= Product(productImage[i], productCurrency[i],productPrice[i],productDesc[i],cartImage[i])
+            productArraylist.add(products)
+        }
     }
 }

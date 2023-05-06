@@ -3,13 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".Home">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/rv_home"
+        tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_home_fragment"
-        android:textSize="24sp"/>
-
+        tools:itemCount="9"
+        tools:orientation="vertical"
+        tools:scrollbars="vertical"
+        tools:spanCount="2"
+        tools:listitem="@layout/product_item"/>
 </FrameLayout>
