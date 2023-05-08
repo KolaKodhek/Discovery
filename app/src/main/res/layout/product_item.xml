@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="180dp"
-    android:layout_height="270dp"
+    android:layout_height="250dp"
     app:cardElevation="10dp"
     app:cardCornerRadius="4dp"
+    android:layout_margin="10dp"
     android:layout_marginBottom="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -13,7 +15,7 @@
         >
         <ImageView
             android:id="@+id/product_image"
-            android:layout_width="200dp"
+            android:layout_width="170dp"
             android:layout_height="160dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
@@ -21,7 +23,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="productimage" />
+            android:contentDescription="@string/productimage" />
 
         <TextView
             android:id="@+id/tvDescription"
@@ -29,9 +31,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:text="Brand new Dell Spiron 150px"
+            android:text="@string/brand_new_dell_spiron"
             android:textColor="@color/primary"
-            android:textSize="20sp"
+            android:textSize="17sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/product_image" />
@@ -40,11 +42,12 @@
             android:id="@+id/currency"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="$"
-            android:textColor="@color/black"
-            android:textSize="26sp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="6dp"
+            android:text="$"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
 
@@ -52,17 +55,18 @@
             android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="2567"
-            android:textSize="26sp"
-            android:textColor="@color/black"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="6dp"
+            android:text="@string/_2567"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/currency"
             app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
 
         <ImageView
             android:id="@+id/cart"
-            android:layout_width="40dp"
+            android:layout_width="35dp"
             android:layout_height="40dp"
             android:outlineSpotShadowColor="@color/third_color"
             android:src="@drawable/add_to_cart"

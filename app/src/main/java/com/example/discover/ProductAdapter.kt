@@ -1,14 +1,14 @@
 package com.example.discover
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.discover.databinding.ProductItemBinding
 
 
 class ProductAdapter(
-    private val productItem:ArrayList<Product>
+    private val productItem:ArrayList<Product>,
+    //private val onProductClickListener: OnProductClickListener
 ):RecyclerView.Adapter<ProductAdapter.ProductItemViewHolder>(){
 
    //inner class ProductItemViewHolder(itemView:View):RecyclerView.ViewHolder(itemView)
@@ -37,6 +37,10 @@ class ProductAdapter(
 //        }
         val product= productItem[position]
         holder.bindProduct(product)
+//        holder.productBinding.root.setOnClickListener {
+//            onProductClickListener.onProductClick(position)
+//        }
+
     }
     override fun getItemCount(): Int {
        return productItem.size

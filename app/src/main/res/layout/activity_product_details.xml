@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context=".ProductDetails">
+
+    <ImageView
+        android:id="@+id/productdetailsimage"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/laptop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/productname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:text="Dell"
+        android:textColor="@color/primary"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productdetailsimage" />
+
+    <TextView
+        android:id="@+id/productcurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:text="$"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productname" />
+
+    <TextView
+        android:id="@+id/productpricing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1223"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_margin="6dp"
+        app:layout_constraintStart_toEndOf="@+id/productcurrency"
+        app:layout_constraintTop_toBottomOf="@+id/productname" />
+
+    <ImageView
+        android:id="@+id/detailscart"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="6dp"
+        android:src="@drawable/cart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productdetailsimage" />
+
+    <TextView
+        android:id="@+id/detaildesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="6sp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="152dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam at culpa cupiditate doloribus eveniet exercitationem"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productpricing" />
+
+    <ImageView
+        android:id="@+id/seller"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="6dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/prof"
+        app:circularflow_radiusInDP="50dp"
+        style="@style/Circular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detaildesc" />
+
+    <TextView
+        android:id="@+id/sellername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jane Doe"
+        android:layout_margin="6dp"
+        android:textColor="@color/primary"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/seller"
+        app:layout_constraintTop_toBottomOf="@+id/detaildesc" />
+
+    <ImageView
+        android:id="@+id/rating1"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/star"
+        android:layout_margin="4dp"
+        app:layout_constraintStart_toEndOf="@+id/seller"
+        app:layout_constraintTop_toBottomOf="@+id/sellername" />
+    <ImageView
+        android:id="@+id/rating2"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/star"
+        android:layout_margin="4dp"
+        app:layout_constraintStart_toEndOf="@+id/rating1"
+        app:layout_constraintTop_toBottomOf="@+id/sellername" />
+    <ImageView
+        android:id="@+id/rating3"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/star"
+        android:layout_margin="4dp"
+        app:layout_constraintStart_toEndOf="@+id/rating2"
+        app:layout_constraintTop_toBottomOf="@+id/sellername" />
+
+    <TextView
+        android:id="@+id/review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reviews"
+        android:textSize="14sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/secondary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seller" />
+    <TextView
+        android:id="@+id/reviewtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jane Doe has no reviews yet"
+        android:textSize="13sp"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="6dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/review" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,4 +8,7 @@
     <string name="hello_profile_fragment">hello_profile_fragment</string>
     <string name="hello_addProduct_fragment">hello_addProduct_fragment</string>
     <string name="hello_mycart_fragment">hello_mycart_fragment</string>
+    <string name="productimage">productimage</string>
+    <string name="_2567">2567</string>
+    <string name="brand_new_dell_spiron">Brand new Dell Spiron</string>
 </resources>

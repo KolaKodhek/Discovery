@@ -1,5 +1,6 @@
 package com.example.discover
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -18,13 +19,15 @@ private const val ARG_PARAM2 = "param2"
  * Use the [Home.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Home : Fragment() {
+class Home : Fragment(){
+    //, OnProductClickListener
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var recyclerView: RecyclerView
     private lateinit var productAdapter: ProductAdapter
     private lateinit var productArraylist:ArrayList<Product>
+    //private lateinit var onProductClickListener:OnProductClickListener
 
     lateinit var productImage:Array<Int>
     private lateinit var productCurrency:Array<String>
@@ -68,7 +71,7 @@ class Home : Fragment() {
             }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?){
         super.onViewCreated(view, savedInstanceState)
         dataInitialize()
         val layoutManager= GridLayoutManager(requireContext(),2,GridLayoutManager.VERTICAL,false)
@@ -80,6 +83,9 @@ class Home : Fragment() {
         recyclerView.adapter=productAdapter
 
     }
+
+
+
     private fun dataInitialize(){
         productArraylist= arrayListOf<Product>()
 
@@ -97,7 +103,6 @@ class Home : Fragment() {
             R.drawable.laptop,
             R.drawable.laptop,
         )
-
         productCurrency= arrayOf(
             "USD",
             "USD",
@@ -141,6 +146,7 @@ class Home : Fragment() {
             56789
         )
         cartImage= arrayOf(
+
             R.drawable.add_to_cart,
             R.drawable.add_to_cart,
             R.drawable.add_to_cart,
@@ -153,10 +159,30 @@ class Home : Fragment() {
             R.drawable.add_to_cart,
             R.drawable.add_to_cart,
             R.drawable.add_to_cart,
+
         )
+
         for (i in productImage.indices){
+
             val products= Product(productImage[i], productCurrency[i],productPrice[i],productDesc[i],cartImage[i])
             productArraylist.add(products)
+
         }
+
     }
+//        override fun onProductClick(position: Int) {
+//
+//        val intent = Intent(context, ProductDetails::class.java)
+//
+//        intent.putExtra("product_Image", productArraylist[position].productImage)
+//        intent.putExtra("product_Desc",productArraylist[position].productDesc)
+//        intent.putExtra("product_Price",productArraylist[position].productPrice)
+//        intent.putExtra("product_Currency",productArraylist[position].productCurrency)
+//        intent.putExtra("cart_Image",productArraylist[position].cartImage)
+//
+//
+//        startActivity(intent)
+//    }
 }
+
+
