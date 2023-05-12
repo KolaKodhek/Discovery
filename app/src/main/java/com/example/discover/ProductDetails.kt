@@ -12,9 +12,9 @@ class ProductDetails : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityProductDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+//        supportActionBar?.setDisplayShowTitleEnabled(false)
+//        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+//        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         val productDesc=intent.getStringExtra("product_Desc")
         binding.productname.text=productDesc

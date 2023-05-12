@@ -1,5 +1,6 @@
 package com.example.discover
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -171,7 +172,17 @@ class Home : Fragment(){
 
     }
     private fun onProductClicked(product:Product){
-        Toast.makeText(requireContext(),"product -${product.productDesc}",Toast.LENGTH_SHORT).show()
+        val intent = Intent(context, ProductDetails::class.java)
+
+        intent.putExtra("product_Image", product.productImage)
+        intent.putExtra("product_Desc", product.productDesc)
+        intent.putExtra("product_Price", product.productPrice)
+        intent.putExtra("product_Currency", product.productCurrency)
+        intent.putExtra("cart_Image", product.cartImage)
+
+        startActivity(intent)
+
+       // Toast.makeText(requireContext(),"product -${product.productDesc}",Toast.LENGTH_SHORT).show()
     }
 //        override fun onProductClick(position: Int) {
 //
