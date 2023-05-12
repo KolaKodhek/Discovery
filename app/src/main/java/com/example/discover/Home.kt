@@ -1,11 +1,11 @@
 package com.example.discover
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -79,7 +79,7 @@ class Home : Fragment(){
         recyclerView =view.findViewById(R.id.rv_home)
         recyclerView.layoutManager=layoutManager
         recyclerView.setHasFixedSize(true)
-        productAdapter= ProductAdapter(productArraylist)
+        productAdapter= ProductAdapter(productArraylist, ::onProductClicked)
         recyclerView.adapter=productAdapter
 
     }
@@ -169,6 +169,9 @@ class Home : Fragment(){
 
         }
 
+    }
+    private fun onProductClicked(product:Product){
+        Toast.makeText(requireContext(),"product -${product.productDesc}",Toast.LENGTH_SHORT).show()
     }
 //        override fun onProductClick(position: Int) {
 //
