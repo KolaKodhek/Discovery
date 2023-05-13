@@ -1,10 +1,22 @@
 package com.example.discover
 
+import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import android.Manifest
+import android.app.Activity
+import android.content.Intent
+import android.graphics.BitmapFactory
+import android.net.Uri
+import android.provider.MediaStore
+import android.widget.Button
+import android.widget.Toast
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +33,13 @@ class Addproduct : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private val PICK_IMAGE_REQUEST = 1 // Request code for image picker
+    private val PERMISSION_REQUEST_CODE = 2 // Request code for storage permission
+
+    private lateinit var imageView: ImageView
+    private lateinit var chooseProduct:Button
+    private lateinit var postProduct:Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,8 +53,85 @@ class Addproduct : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_addproduct, container, false)
+        val view = inflater.inflate(R.layout.fragment_addproduct, container, false)
+        imageView = view.findViewById(R.id.toAddProduct)
+        chooseProduct= view.findViewById(R.id.toAddProductbtn)
+
+        // Request storage permission if not granted
+        if (ContextCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                requireActivity(),
+                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+                PERMISSION_REQUEST_CODE
+            )
+        }
+//        chooseProduct.setOnClickListener {
+//            if (isStoragePermissionGranted()) {
+//                openImagePicker()
+//            }
+//        }
+        imageView.setOnClickListener {
+            if (isStoragePermissionGranted()) {
+                openImagePicker()
+            }
+        }
+//        postProduct.setOnClickListener {
+//            Toast.makeText(requireContext(),"Product posted successfully",Toast.LENGTH_SHORT).show()
+//        }
+        return view
     }
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted, open image picker
+                openImagePicker()
+            } else {
+                // Permission denied, handle accordingly (e.g., show a message to the user)
+            }
+        }
+    }
+    private fun isStoragePermissionGranted(): Boolean {
+        return ContextCompat.checkSelfPermission(
+            requireContext(),
+            Manifest.permission.READ_EXTERNAL_STORAGE
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+    private fun openImagePicker() {
+        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        try {
+            startActivityForResult(intent, PICK_IMAGE_REQUEST)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            // Handle the exception (e.g., show a message to the user)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
+            try {
+                val imageUri: Uri? = data.data
+                val inputStream = requireActivity().contentResolver.openInputStream(imageUri!!)
+                val bitmap = BitmapFactory.decodeStream(inputStream)
+                imageView.setImageBitmap(bitmap)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                // Handle the exception (e.g., show a message to the user)
+            }
+        }
+    }
+
 
     companion object {
         /**
@@ -56,4 +152,5 @@ class Addproduct : Fragment() {
                 }
             }
     }
+
 }
