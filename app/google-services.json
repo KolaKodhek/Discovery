@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "801120990499",
+    "project_id": "discover-eea59",
+    "storage_bucket": "discover-eea59.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801120990499:android:ffa0c65c9322afb1bec896",
+        "android_client_info": {
+          "package_name": "com.example.discover"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "801120990499-l4o5bu50sv98oqg0ar6kj8dnogls0bqb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAM-CLZj1_uyU7HRStaoVp8BtyO9vgCsjQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "801120990499-l4o5bu50sv98oqg0ar6kj8dnogls0bqb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

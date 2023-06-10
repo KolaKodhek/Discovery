@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,6 +29,8 @@ class Home : Fragment(){
     private lateinit var recyclerView: RecyclerView
     private lateinit var productAdapter: ProductAdapter
     private lateinit var productArraylist:ArrayList<Product>
+
+    private lateinit var chart:ImageView
     //private lateinit var onProductClickListener:OnProductClickListener
 
     lateinit var productImage:Array<Int>
@@ -48,7 +52,13 @@ class Home : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
+        chart=view.findViewById(R.id.message)
+        chart.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+        }
+
+        return view
     }
 
     companion object {
