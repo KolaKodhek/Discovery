@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="logo">logo</string>
+    <string name="hello_addProduct_fragment">hello_addProduct_fragment</string>
+    <string name="hello_mycart_fragment">hello_mycart_fragment</string>
+</resources>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Discover</string>
+    <string name="logo">logo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_addproduct_fragment" />
+    <string name="hello_home_fragment">hello_home_fragment</string>
+    <string name="hello_profile_fragment">hello_profile_fragment</string>
+    <string name="hello_addProduct_fragment">hello_addProduct_fragment</string>
+    <string name="hello_mycart_fragment">hello_mycart_fragment</string>
+    <string name="productimage">productimage</string>
+    <string name="_2567">2567</string>
+    <string name="brand_new_dell_spiron">Brand new Dell Spiron</string>
+</resources>
